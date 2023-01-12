@@ -1,0 +1,29 @@
+<div id="form"></div>
+<h2>Fill the Sign Up Form</h2>
+<form action="/signup" method="POST">
+<label>
+    Username
+    <input  name="username" placeholder="username">
+</label>
+<div id="message">
+  <p>Username must be unique!</p>
+</div>
+<label>
+    Password
+    <input type="password" name="password" placeholder="*********">
+</label>
+
+<div id="message">
+  <p>Password must contain minimum <b>8 characters</b></p>
+  {{!-- Password must contain the following: --}}
+ {{!--  <ul>
+    <li>A <b>lowercase</b> letter</li>
+    <li>A <b>capital (uppercase)</b> letter</li>
+    <li>A <b>number</b></li>
+    <li>Minimum <b>8 characters</b></li>
+  </ul> --}}
+</div>
+<button type="submit">Create Account</button>
+
+</form>
+</div>
