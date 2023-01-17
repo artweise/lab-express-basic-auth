@@ -1,22 +1,24 @@
 <div>
 
   <h3>Fill in the Sign Up Form</h3>
-  {{!-- form’s action attribute defines where to send the form data when a form is submitted. 
+  {{!-- form’s action attribute defines where to send the form data when a form is submitted.
   This and the method="POST" tell us that we should create a post route that will handle the form data --}}
   <form action="/signup" method="POST">
     <label>
       Username
       <input name="username" placeholder="username">
     </label>
-    <div id="message">
+    <div class="message">
       <p>Username must be unique!</p>
+      {{!-- <p>Email can be used</p> --}}
+      <p>Username should have a length of 3 to 16 characters. It may include '_'</p>
     </div>
     <label>
       Password
       <input type="password" name="password" placeholder="*********">
     </label>
 
-    <div id="message">
+    <div class="message">
       <p>Password must contain minimum <b>8 characters</b></p>
       {{!-- Password must contain the following: --}}
       {{!-- <ul>
@@ -27,6 +29,13 @@
       </ul> --}}
     </div>
     <button type="submit">Create Account</button>
+
+
+    {{!-- error message --}}
+
+    {{#if errorMessage}}
+    <p class="error">{{errorMessage}}</p>
+    {{/if}}
 
   </form>
 </div>

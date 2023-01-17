@@ -8,6 +8,8 @@ const userSchema = new Schema(
       unique: true,
       required: [true, "Username is required"],
       trim: true,
+      // match: [/^\S+@\S+\.\S+$/, "Please use a valid email address."],
+      lowercase: true,
     },
     passwordHash: {
       type: String,

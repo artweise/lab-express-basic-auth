@@ -14,6 +14,23 @@ router.post("/signup", (req, res, next) => {
   //req.body what a user has submitted
   console.log("Data from user: ", req.body);
   const { username, password } = req.body;
+  // checking if all required fields are provided
+  if (!username || !password) {
+    return res.render("auth/signup", {
+      errorMessage:
+        "All fields are mandatory. Please provide your username and password.",
+    });
+  }
+
+  // Validation of the username with regex
+  // Username may include _ and – having a length of 3 to 16 characters
+  const regexUsername = /^[a-z0-9_-]{3,16}$/;
+  if (!regexUsername.test(username)) {
+    return res.render("auth/signup", {
+      errorMessage:
+        "Please enter a username with a length of 3 to 16 characters. It may include '_'",
+    });
+  }
 
   bcrypt
     .hash(password, saltRounds)
