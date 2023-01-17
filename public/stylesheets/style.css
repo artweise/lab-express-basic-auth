@@ -47,3 +47,34 @@ form button:hover {
   color: #43a3e6;
   transition: 0.3s ease background;
 }
+
+.to-right {
+  padding: 1em;
+  float: right;
+}
+ 
+.to-right span {
+  color: #43a3e6;
+  font-size: 1.5em;
+}
+ 
+.to-left {
+  float: left;
+}
+ 
+.to-left p a {
+  color: #000;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+ul {
+  /* border-bottom: 2px solid #43a3e6;
+  height: 30px;
+  padding: 1em 0; */
+  list-style-type: none;
+}
+ 
+ul li {
+  line-height: 20px;
+}

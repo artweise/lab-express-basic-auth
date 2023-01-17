@@ -1,11 +1,10 @@
 const router = require("Express").Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/User.model");
-const saltRound = 10;
+const saltRounds = 10;
 
-router.get("/signup", (req, res) => {
-  res.render("auth/signup");
-});
+// GET route ==> to display the signup form to users
+router.get("/signup", (req, res) => res.render("auth/signup"));
 
 // need to refactor, but it works for now OK
 /* const passwordValidation = ((password)=>{
@@ -17,6 +16,7 @@ router.get("/signup", (req, res) => {
     }
 }) */
 
+// POST route ==> to process form data
 router.post("/signup", (req, res) => {
   const { username, password: myPlaintextPassword } = req.body; // the data which user type in the form
   // rename field password to myPlaintextPassword using dectructuring
@@ -28,7 +28,7 @@ router.post("/signup", (req, res) => {
     } else {
       if (myPlaintextPassword.length >= 8) {
         bcrypt
-          .genSalt(saltRound)
+          .genSalt(saltRounds)
           .then((salt) => {
             return bcrypt.hash(myPlaintextPassword, salt);
           })
